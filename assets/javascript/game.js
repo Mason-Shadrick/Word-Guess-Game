@@ -1,6 +1,6 @@
 
 // Array of words to choose from
-var words = ["orange", "teal", "potted fern", "purple", "branches", "leaves", "flower", "bloom", "nature"];
+var words = ["orange", "teal", "pottedfern", "purple", "branches", "leaves", "flower", "bloom", "nature"];
 
 //Variables
 var chosenWord = "";
@@ -11,7 +11,7 @@ var wrongG = [];
 
 //Counts
 var wins = 0;
-var loses = 0;
+var losses = 0;
 var guessLeft = 12;
 
 
@@ -40,6 +40,7 @@ console.log(chosenWord);
 console.log(numLetters);
 console.log(blank);
 console.log(blanksWcorrect);
+}
 
 // reset function
 function reset(){
@@ -97,14 +98,26 @@ function winCheck(){
         document.getElementById("losses").innerHTML = " " + losses;
     }
 
-    //show word with blanks filled in and guess left CD
+    //show word with blanks filled in and guesses left CD
     document.getElementById("wordTog").innerHTML = " " + blanksWcorrect.join(" ");
     document.getElementById("guessLeft").innerHTML = " " + guessLeft;
 }
 
+//run game
+Game()
 
+//onkeyup check
+document.onkeyup = function(event){
+    var guesses = event.key.toLowerCase();
 
+    //runing fuctions
+    letterCheck(guesses);
+    winCheck();
+    //making sure it works right
+    console.log(guesses);
 
+    //show wrong letters guessed on screen
+    document.getElementById("guessedLet").innerHTML = " " + wrongG.join(" ");
+}
 
-};
 
