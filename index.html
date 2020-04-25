@@ -2,18 +2,23 @@
 <html lang="en-us">
 
 <head>
+    <!--bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--My css-->
     <link rel="stylesheer" href="assets/css/style.css">
     <meta charset="UTF-8">
     <title>Word Guess Game!</title>
 </head>
 
+<!-- header pic -->
 <header>
-    <img src="#" class="headImg" alt="Word Guess Header">
+    <img src="assets/images/GUESS_1.png" class="headImg" alt="Word Guess Header" width="100%"
+    height="400px">
 </header>
 
 <body>
+    <!-- Game layout using bootstrap -->
     <div class="container">
         <div class="row" id="mainRow">
             <div class="col-md-4"></div>
@@ -21,6 +26,7 @@
                 <img src="assets/images/pexels-photo-3289085.jpeg" alt="Cool Image" class="img-responsive" width="100%">
             </div>
             <div class="col-md-4">
+                </br>
                 <p>Press any key to get started!</p>
                 </br>
                 <div id="wins"></div>
@@ -35,10 +41,9 @@
             </div>
             <div class="col-md-4"></div>
         </div>
-
-
     </div>
 </body>
-
+<!-- Javascript -->
+<script type="text/javascript" src="assets/javascript/game.js"></script>
 
 </html>
