@@ -93,7 +93,7 @@ function winCheck(){
 
     //if loss add to loss score and reset
     else if (guessLeft === 0){
-        loses++;
+        losses++;
         reset();
         document.getElementById("losses").innerHTML = " " + losses;
     }
