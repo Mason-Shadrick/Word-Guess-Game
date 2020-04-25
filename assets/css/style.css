@@ -1,0 +1,18 @@
+body {
+    background-color: teal;
+}
+p {
+    color: purple;
+}
+#mainRow {
+    border: dashed;
+    border-color: orange;
+}
+
+#wins, #wordTog, #guessedLet {
+    background-color: greenyellow;
+}
+
+#losses, #guessLeft {
+    background-color: salmon;
+}
