@@ -16,34 +16,34 @@ var guessLeft = 12;
 
 
 //Functions
-function Game(){
+function Game() {
 
-//Chooses random word
-chosenWord = words[Math.floor(Math.random() * words.length)];
+    //Chooses random word
+    chosenWord = words[Math.floor(Math.random() * words.length)];
 
-//storing chosen word into new array
-numLetters = chosenWord.split("");
+    //storing chosen word into new array
+    numLetters = chosenWord.split("");
 
-//find length of word in blanks
-blank = numLetters.length;
+    //find length of word in blanks
+    blank = numLetters.length;
 
-//loop displaying "_" for each letter
-for (var i = 0; i < blank; i++){
-    blanksWcorrect.push("_");
-}
+    //loop displaying "_" for each letter
+    for (var i = 0; i < blank; i++) {
+        blanksWcorrect.push("_");
+    }
 
-//display blanks with corect guesses in html
-document.getElementById("wordTog").innerHTML = " " + blanksWcorrect.join(" ");
+    //display blanks with corect guesses in html
+    document.getElementById("wordTog").innerHTML = " " + blanksWcorrect.join(" ");
 
-// console
-console.log(chosenWord);
-console.log(numLetters);
-console.log(blank);
-console.log(blanksWcorrect);
+    // console
+    console.log(chosenWord);
+    console.log(numLetters);
+    console.log(blank);
+    console.log(blanksWcorrect);
 }
 
 // reset function
-function reset(){
+function reset() {
     guessLeft = 12
     wrongG = [];
     blanksWcorrect = [];
@@ -54,20 +54,20 @@ function reset(){
 //comparing guesses
 
 //checking for letter matches
-function letterCheck(letter){
+function letterCheck(letter) {
     var letterGuess = false;
 
     //if letter is in word change to true
-    for (var i = 0; i < blank; i++){
-        if(chosenWord[i] == letter){
+    for (var i = 0; i < blank; i++) {
+        if (chosenWord[i] == letter) {
             letterGuess = true;
         }
     }
 
     //if false
-    if(letterGuess){
-        for (var i = 0; i < blank; i++){
-            if (chosenWord[i] == letter){
+    if (letterGuess) {
+        for (var i = 0; i < blank; i++) {
+            if (chosenWord[i] == letter) {
                 blanksWcorrect[i] = letter;
             }
         }
@@ -82,20 +82,20 @@ function letterCheck(letter){
 }
 
 //did you win???
-function winCheck(){
-    
+function winCheck() {
+
     //if win add to win score and reset
-    if (numLetters.toString() == blanksWcorrect.toString()){
+    if (numLetters.toString() == blanksWcorrect.toString()) {
         wins++;
         reset();
-        document.getElementById("wins").innerHTML = " " + wins;
+        document.getElementById("wins").innerHTML = "Wins:" + wins;
     }
 
     //if loss add to loss score and reset
-    else if (guessLeft === 0){
+    else if (guessLeft === 0) {
         losses++;
         reset();
-        document.getElementById("losses").innerHTML = " " + losses;
+        document.getElementById("losses").innerHTML = "Losses:" + losses;
     }
 
     //show word with blanks filled in and guesses left CD
@@ -107,7 +107,7 @@ function winCheck(){
 Game()
 
 //onkeyup check
-document.onkeyup = function(event){
+document.onkeyup = function (event) {
     var guesses = event.key.toLowerCase();
 
     //runing fuctions
