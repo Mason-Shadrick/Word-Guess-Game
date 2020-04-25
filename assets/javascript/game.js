@@ -41,12 +41,68 @@ console.log(numLetters);
 console.log(blank);
 console.log(blanksWcorrect);
 
+// reset function
+function reset(){
+    guessLeft = 12
+    wrongG = [];
+    blanksWcorrect = [];
+    Game()
+}
 
 
-// document.onkeyup= function(event) {
+//comparing guesses
 
-// //
-// var letterClicked = event.key.toLowerCase();
+//checking for letter matches
+function letterCheck(letter){
+    var letterGuess = false;
+
+    //if letter is in word change to true
+    for (var i = 0; i < blank; i++){
+        if(chosenWord[i] == letter){
+            letterGuess = true;
+        }
+    }
+
+    //if false
+    if(letterGuess){
+        for (var i = 0; i < blank; i++){
+            if (chosenWord[i] == letter){
+                blanksWcorrect[i] = letter;
+            }
+        }
+    }
+
+    //put wrong guess in correct place and subtract from guesses
+    else {
+        wrongG.push(letter);
+        guessLeft--;
+    }
+    console.log(blanksWcorrect);
+}
+
+//did you win???
+function winCheck(){
+    
+    //if win add to win score and reset
+    if (numLetters.toString() == blanksWcorrect.toString()){
+        wins++;
+        reset();
+        document.getElementById("wins").innerHTML = " " + wins;
+    }
+
+    //if loss add to loss score and reset
+    else if (guessLeft === 0){
+        loses++;
+        reset();
+        document.getElementById("losses").innerHTML = " " + losses;
+    }
+
+    //show word with blanks filled in and guess left CD
+    document.getElementById("wordTog").innerHTML = " " + blanksWcorrect.join(" ");
+    document.getElementById("guessLeft").innerHTML = " " + guessLeft;
+}
+
+
 
 
 
